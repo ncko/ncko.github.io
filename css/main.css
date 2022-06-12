@@ -1,0 +1,101 @@
+/* reset */
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+ol, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+/* page */
+html {
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.5rem;
+  color: #272727;
+}
+
+body {
+  padding-top: 1.5rem;
+  padding-left: 0.75rem;
+}
+  @media screen and (min-width: 744px) {
+    body {
+      padding-left: 1.5rem;
+    }
+  }
+
+/* shared */
+h1, h2, h3, h4, h5, h6,
+p, ul, ul, li {
+  margin-bottom: 1.5rem;
+}
+
+/* headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.441rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.563rem;
+  line-height: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* paragraphs */
+p.lead {
+  font-size: 1.25rem;
+}
+
+/* links */
+a {
+  color: #0040FF;
+  text-decoration: underline;
+}
+
+  a:visited {
+    color: #0040FF;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0040FF;
+    text-decoration: none;
+  }
+
+/* components */
+.container {
+  display: block;
+  max-width: 600px;
+}
+
+  .container--small {
+   max-width: 360px;
+  }
+
+/* overrides */
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.grayish {
+  color: #656565;
+}
