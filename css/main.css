@@ -26,15 +26,15 @@ body {
   padding-top: 1.5rem;
   padding-left: 0.75rem;
 }
-  @media screen and (min-width: 744px) {
-    body {
-      padding-left: 1.5rem;
-    }
+@media screen and (min-width: 744px) {
+  body {
+    padding-left: 1.5rem;
   }
+}
 
 /* shared */
 h1, h2, h3, h4, h5, h6,
-p, ul, ul, li {
+p, ul, ol {
   margin-bottom: 1.5rem;
 }
 
@@ -71,25 +71,21 @@ a {
   text-decoration: underline;
 }
 
-  a:visited {
-    color: #0040FF;
-    text-decoration: none;
-  }
+a:visited {
+  color: #0040FF;
+  text-decoration: none;
+}
 
-  a:hover {
-    color: #0040FF;
-    text-decoration: none;
-  }
+a:hover {
+  color: #0040FF;
+  text-decoration: none;
+}
 
 /* components */
 .container {
   display: block;
   max-width: 600px;
 }
-
-  .container--small {
-   max-width: 360px;
-  }
 
 /* overrides */
 .mb-0 {
