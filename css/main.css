@@ -19,7 +19,7 @@ ol, ul, li {
 html {
   font-family: 'Work Sans', sans-serif;
   line-height: 1.5rem;
-  color: #272727;
+  color: #534648;
 }
 
 body {
@@ -66,19 +66,13 @@ p.lead {
 }
 
 /* links */
-a {
-  color: #0040FF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #0040FF;
+a, a:hover, a:visited, a:active {
+  color: #f43059;
   text-decoration: none;
 }
 
 a:hover {
-  color: #0040FF;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* components */
@@ -93,5 +87,5 @@ a:hover {
 }
 
 .grayish {
-  color: #656565;
+  color: #9F9395;
 }
