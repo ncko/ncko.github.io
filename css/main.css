@@ -35,6 +35,7 @@ body {
 h1, h2, h3, h4, h5, h6,
 p, ul, ol, img {
   margin-bottom: 1.5rem;
+  cursor: default;
 }
 
 /* images */
@@ -88,7 +89,7 @@ a:hover {
 
 @media screen and (min-width: 1281px) {
   .avatar {
-    opacity: 0.50;
+    opacity: 0.7;
     -webkit-transition: opacity 0.3s ease-out;
     -moz-transition: opacity 0.3s ease-out;
     -o-transition: opacity 0.3s ease-out;
@@ -99,6 +100,21 @@ a:hover {
     }
 }
 
+.header {
+  display: block;
+}
+
+  .header__body {
+    float: left;
+    width: 115px;
+  }
+
+  .header_img {
+    display: block;
+  }
+
+
+
 /* overrides */
 .mb-0 {
   margin-bottom: 0 !important;
@@ -106,4 +122,9 @@ a:hover {
 
 .grayish {
   color: #9F9395;
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
 }
