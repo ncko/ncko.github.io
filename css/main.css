@@ -34,8 +34,13 @@ body {
 
 /* shared */
 h1, h2, h3, h4, h5, h6,
-p, ul, ol {
+p, ul, ol, img {
   margin-bottom: 1.5rem;
+}
+
+/* images */
+img {
+  max-width: 100%;
 }
 
 /* headings */
@@ -79,6 +84,19 @@ a:hover {
 .container {
   display: block;
   max-width: 600px;
+}
+
+@media screen and (min-width: 1281px) {
+  .avatar {
+    opacity: 0.50;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+  }
+    .avatar:hover {
+      opacity: 1;
+    }
 }
 
 /* overrides */
