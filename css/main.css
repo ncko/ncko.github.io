@@ -24,7 +24,6 @@ html {
 
 body {
   padding-top: 1.5rem;
-  padding-left: 1.5rem;
 }
 @media screen and (min-width: 744px) {
   body {
@@ -84,6 +83,7 @@ a:hover {
 .container {
   display: block;
   max-width: 600px;
+  padding: 0 1.5rem;
 }
 
 @media screen and (min-width: 1281px) {
