@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>ncko</title>
-    <meta name="description" content="">
+    <meta name="description" content="Personal website of Nick Olsen - Software Developer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H54T7NP3NZ"></script>
@@ -20,6 +20,11 @@
         gtag('config', 'G-H54T7NP3NZ');
     </script>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -29,9 +34,9 @@
 
 <body>
 <div class="container">
-    <header class="header">
+    <header class="header hover-highlight">
         <div class="clearfix">
-            <img class="header__img avatar" src="img/head-transparent-tiny.png" alt="Nick's avatar" />
+            <img class="header__img avatar" src="img/head-brand-tiny.png" alt="Nick's avatar"/>
             <div class="header__body">
                 <h1 class="mb-0">ncko</h1>
                 <p class="lead grayish">Nick Olsen</p>
@@ -40,16 +45,49 @@
     </header>
 
     <main>
-        <p class="lead">I'm a software developer experienced with React and Node. I'm currently working on PHP and
-            Python services at <a href="https://crossfit.com/" target="_blank">CrossFit</a>. I'm interested
-            in state machines with XState and trying to understand the blockchain ecosystem.</p>
-        <ul>
+        <div class="hover-highlight d:inline-block">
+            <p class="lead">I'm a software developer experienced with React and Node. I'm interested
+                in state machines with XState and trying to understand the blockchain ecosystem.</p>
+        </div>
+        <ul class="hover-highlight">
             <li>Hit me up on <a href="https://twitter.com/_ncko">Twitter</a></li>
             <li>See my work history on <a href="https://linkedin.com/in/ncko">LinkedIn</a></li>
             <li>Look at some of my code on <a href="https://github.com/ncko" target="_blank">GitHub</a></li>
         </ul>
     </main>
 </div>
+
+<script>
+    const DIM_CLS = 'hover-highlight--dim'
+    const STATUS_ACTIVE = 'active'
+    const STATUS_INACTIVE = 'inactive'
+
+    document.addEventListener('DOMContentLoaded', initializeHoverHighlight)
+
+    function initializeHoverHighlight() {
+        const elements = Array.from(document.querySelectorAll('.hover-highlight'))
+        elements.forEach(initHighlightElement)
+    }
+
+    function initHighlightElement(currentElement, _, elements) {
+        currentElement.dataset.hstatus = STATUS_INACTIVE
+        currentElement.addEventListener('mouseenter', () => {
+            currentElement.dataset.hstatus = STATUS_ACTIVE
+            transition(elements)
+        })
+        currentElement.addEventListener('mouseleave', () => {
+            currentElement.dataset.hstatus = STATUS_INACTIVE
+            transition(elements)
+        })
+    }
+
+    function transition(elements) {
+        const activeElement = elements.find(el => el.dataset.hstatus === STATUS_ACTIVE)
+        activeElement ?
+            elements.forEach(element => element !== activeElement && element.classList.add(DIM_CLS))
+            : elements.forEach(element => element.classList.remove(DIM_CLS))
+    }
+</script>
 
 </body>
 
