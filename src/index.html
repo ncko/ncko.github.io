@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ncko</title>
+    <meta name="description" content="Personal website of Nick Olsen - Software Developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H54T7NP3NZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-H54T7NP3NZ');
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+        <link
+                href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap"
+                rel="stylesheet"
+                type="text/css"
+        />
+    </noscript>
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <style>
+        /* reset */
+        *, *:after, *:before {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        p,
+        ol, ul, li {
+            margin: 0;
+            border: 0;
+            padding: 0;
+        }
+
+        /* page */
+        html {
+            font-family: 'Work Sans', sans-serif;
+            line-height: 1.5rem;
+            color: #534648;
+            height: 100%;
+        }
+
+        body {
+            padding-top: calc(1.5rem - 6px);
+            height: 100%;
+        }
+
+        @media screen and (min-width: 744px) {
+            body {
+                padding-left: calc(3rem - 6px);
+            }
+        }
+
+        /* shared */
+        h1, h2, h3, h4, h5, h6,
+        p, ul, ol, img {
+            margin-bottom: 1.5rem;
+            cursor: default;
+        }
+
+        /* images */
+        img {
+            max-width: 100%;
+        }
+
+        /* headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.441rem;
+            line-height: 3rem;
+        }
+
+        h2 {
+            font-size: 1.563rem;
+            line-height: 3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* paragraphs */
+        p.lead {
+            font-size: 1.25rem;
+        }
+
+        /* links */
+        a, a:hover, a:visited, a:active {
+            color: #f43059;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* components */
+        .container {
+            display: block;
+            max-width: 600px;
+            padding: 0 1.5rem;
+        }
+
+        .avatar {
+            border-radius: 50%;
+        }
+
+        /*@media screen and (min-width: 1281px) {*/
+            .hover-highlight {
+                opacity: 1;
+                -webkit-transition: opacity 0.3s ease-out;
+                -moz-transition: opacity 0.3s ease-out;
+                -o-transition: opacity 0.3s ease-out;
+                transition: opacity 0.3s ease-out;
+            }
+
+            .hover-highlight--dim {
+                opacity: 0.5;
+            }
+        /*}*/
+
+        .header {
+            display: block;
+        }
+
+        .header__body {
+            float: left;
+            width: 115px;
+        }
+
+        .header_img {
+            display: block;
+        }
+
+
+        /* overrides */
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .grayish {
+            color: #9F9395;
+        }
+
+        .clearfix:after {
+            display: table;
+            clear: both;
+        }
+
+        .d\:inline-block {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <header class="header hover-highlight">
+        <div class="clearfix">
+            <img class="header__img avatar" src="img/head-brand-tiny.png" alt="Nick's avatar" width="72" height="72"/>
+            <div class="header__body">
+                <h1 class="mb-0">ncko</h1>
+                <p class="lead grayish">Nick Olsen</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hover-highlight d:inline-block">
+            <p class="lead">I write software.</p>
+        </div>
+        <ul class="hover-highlight">
+            <li>Hit me up on <a href="https://twitter.com/_ncko">Twitter</a></li>
+            <li>See my work history on <a href="https://linkedin.com/in/ncko">LinkedIn</a></li>
+            <li>Look at some of my code on <a href="https://github.com/ncko" target="_blank">GitHub</a></li>
+        </ul>
+    </main>
+</div>
+
+<script src="js/build-id.js"></script>
+<script>
+    const DIM_CLS = 'hover-highlight--dim'
+    const STATUS_ACTIVE = 'active'
+    const STATUS_INACTIVE = 'inactive'
+
+    document.addEventListener('DOMContentLoaded', initializeHoverHighlight)
+
+    function initializeHoverHighlight() {
+        const elements = Array.from(document.querySelectorAll('.hover-highlight'))
+        elements.forEach(initHighlightElement)
+    }
+
+    function initHighlightElement(currentElement, _, elements) {
+        currentElement.dataset.hstatus = STATUS_INACTIVE
+        currentElement.addEventListener('mouseenter', () => {
+            currentElement.dataset.hstatus = STATUS_ACTIVE
+            transition(elements)
+        })
+        currentElement.addEventListener('mouseleave', () => {
+            currentElement.dataset.hstatus = STATUS_INACTIVE
+            transition(elements)
+        })
+    }
+
+    function transition(elements) {
+        const activeElement = elements.find(el => el.dataset.hstatus === STATUS_ACTIVE)
+        activeElement ?
+            elements.forEach(element => element !== activeElement && element.classList.add(DIM_CLS))
+            : elements.forEach(element => element.classList.remove(DIM_CLS))
+    }
+</script>
+
+</body>
+
+</html>

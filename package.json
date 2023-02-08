@@ -1,0 +1,19 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node index.js",
+    "watch": "concurrently --hide 1 \"NODE_ENV='dev' node watch.js\" \"python -m http.server 9000 --directory ./docs\""
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "metalsmith": "^2.5.1",
+    "node-html-parser": "^6.1.4"
+  },
+  "devDependencies": {
+    "@types/metalsmith": "^2.3.1"
+  }
+}
