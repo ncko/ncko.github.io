@@ -25,10 +25,6 @@ html {
 
 body {
     padding-top: calc(1.5rem - 6px);
-    border-top: 6px solid;
-    border-left: 6px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(145deg, #f43059, #fff 35%);
     height: 100%;
 }
 
