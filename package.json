@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node index.js",
+    "serve": "yarn build && docker run -p 8080:80 -v $PWD/docs:/usr/share/nginx/html nginx",
     "watch": "concurrently --hide 1 \"NODE_ENV='dev' node watch.js\" \"python -m http.server 9000 --directory ./docs\""
   },
   "dependencies": {
