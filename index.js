@@ -112,9 +112,17 @@ function applyRecipeLayouts() {
             console.error('Recipe layout not found!');
             return;
         }
+
+        const indexLayoutPath = 'src/layouts/recipe-index.html';
+        if (!fs.existsSync(indexLayoutPath)) {
+            console.error('Recipe index layout not found!');
+            return;
+        }
         
         const layoutTemplate = fs.readFileSync(layoutPath, 'utf8');
+        const indexLayoutTemplate = fs.readFileSync(indexLayoutPath, 'utf8');
         const template = handlebars.compile(layoutTemplate);
+        const indexTemplate = handlebars.compile(indexLayoutTemplate);
         
         Object.keys(files).forEach(filepath => {
             if (filepath.startsWith('recipes/') && filepath.endsWith('.html')) {
@@ -127,6 +135,15 @@ function applyRecipeLayouts() {
                     };
                     
                     const rendered = template(context);
+                    file.contents = Buffer.from(rendered);
+                } else if (file.layout === 'recipe-index.html') {
+                    const context = {
+                        contents: file.contents.toString(),
+                        title: file.title || 'Recipe',
+                        ...metalsmith._metadata
+                    };
+                    
+                    const rendered = indexTemplate(context);
                     file.contents = Buffer.from(rendered);
                 }
             }
@@ -152,7 +169,7 @@ function createRecipesIndex() {
             contents: Buffer.from(indexContent),
             mode: '0644',
             title: 'Recipes',
-            layout: 'recipe.html'
+            layout: 'recipe-index.html'
         };
     }
 }
