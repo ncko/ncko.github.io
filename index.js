@@ -4,6 +4,7 @@ import { parse, HTMLElement } from 'node-html-parser';
 import Metalsmith from 'metalsmith';
 import markdown from '@metalsmith/markdown';
 import layouts from '@metalsmith/layouts';
+import handlebars from 'handlebars';
 import fs from 'fs';
 import path from 'path';
 
@@ -54,12 +55,15 @@ function addRecipeMetadata() {
                 const file = files[filepath];
                 const contents = file.contents.toString();
                 
-                // Extract title from first heading
-                const titleMatch = contents.match(/^##?\s+(.+)$/m);
-                const title = titleMatch ? titleMatch[1] : 'Recipe';
+                // Extract title from first heading (skip if already has title)
+                if (!file.title) {
+                    const titleMatch = contents.match(/^##?\s+(.+)$/m);
+                    file.title = titleMatch ? titleMatch[1] : 'Recipe';
+                }
                 
-                file.title = title;
-                file.layout = 'recipe.html';
+                if (!file.layout) {
+                    file.layout = 'recipe.html';
+                }
             })
     }
 }
@@ -67,6 +71,7 @@ function addRecipeMetadata() {
 function addRecipeFiles() {
     return (files, metalsmith) => {
         const recipesDir = './recipes';
+        const recipesList = [];
         
         if (fs.existsSync(recipesDir)) {
             const recipeFiles = fs.readdirSync(recipesDir);
@@ -79,9 +84,76 @@ function addRecipeFiles() {
                         contents: contents,
                         mode: '0644'
                     };
+                    
+                    // Extract recipe info for index
+                    const contentStr = contents.toString();
+                    const titleMatch = contentStr.match(/^##?\s+(.+)$/m);
+                    const title = titleMatch ? titleMatch[1] : filename.replace('.md', '');
+                    const slug = filename.replace('.md', '.html');
+                    
+                    recipesList.push({
+                        title: title,
+                        slug: slug,
+                        filename: filename
+                    });
                 }
             });
         }
+        
+        // Store recipes list in metalsmith metadata for use in index template
+        metalsmith._metadata.recipes = recipesList.sort((a, b) => a.title.localeCompare(b.title));
+    }
+}
+
+function applyRecipeLayouts() {
+    return (files, metalsmith) => {
+        const layoutPath = 'src/layouts/recipe.html';
+        if (!fs.existsSync(layoutPath)) {
+            console.error('Recipe layout not found!');
+            return;
+        }
+        
+        const layoutTemplate = fs.readFileSync(layoutPath, 'utf8');
+        const template = handlebars.compile(layoutTemplate);
+        
+        Object.keys(files).forEach(filepath => {
+            if (filepath.startsWith('recipes/') && filepath.endsWith('.html')) {
+                const file = files[filepath];
+                if (file.layout === 'recipe.html') {
+                    const context = {
+                        contents: file.contents.toString(),
+                        title: file.title || 'Recipe',
+                        ...metalsmith._metadata
+                    };
+                    
+                    const rendered = template(context);
+                    file.contents = Buffer.from(rendered);
+                }
+            }
+        });
+    }
+}
+
+function createRecipesIndex() {
+    return (files, metalsmith) => {
+        const recipes = metalsmith._metadata.recipes || [];
+        
+        let indexContent = `# Recipes\n\n`;
+        
+        if (recipes.length === 0) {
+            indexContent += `No recipes available yet.\n`;
+        } else {
+            recipes.forEach(recipe => {
+                indexContent += `- [${recipe.title}](/recipes/${recipe.slug})\n`;
+            });
+        }
+        
+        files['recipes/index.md'] = {
+            contents: Buffer.from(indexContent),
+            mode: '0644',
+            title: 'Recipes',
+            layout: 'recipe.html'
+        };
     }
 }
 
@@ -97,15 +169,10 @@ export const website = {
             .destination(OUTPUT_FOLDER)
             .clean(true)
             .use(addRecipeFiles())
+            .use(createRecipesIndex())
             .use(addRecipeMetadata())
             .use(markdown())
-            .use(layouts({
-                directory: 'src/layouts',
-                default: 'recipe.html',
-                pattern: 'recipes/**/*.html',
-                transform: 'jstransformer-marked'
-
-            }))
+            .use(applyRecipeLayouts())
             .use(writeBuildID({
                 path: 'js/build-id.js',
                 decorator: (id) => `const buildId = "${id}";`
