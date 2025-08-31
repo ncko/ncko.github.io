@@ -10,7 +10,10 @@
     "watch": "concurrently --hide 1 \"NODE_ENV='dev' node watch.js\" \"python -m http.server 9000 --directory ./docs\""
   },
   "dependencies": {
+    "@metalsmith/layouts": "^3.0.0",
+    "@metalsmith/markdown": "^1.10.0",
     "concurrently": "^7.6.0",
+    "jstransformer-marked": "^1.4.0",
     "metalsmith": "^2.5.1",
     "node-html-parser": "^6.1.4"
   },

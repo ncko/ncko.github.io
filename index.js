@@ -2,6 +2,10 @@ import { fileURLToPath } from 'url';
 import { randomUUID } from 'crypto';
 import { parse, HTMLElement } from 'node-html-parser';
 import Metalsmith from 'metalsmith';
+import markdown from '@metalsmith/markdown';
+import layouts from '@metalsmith/layouts';
+import fs from 'fs';
+import path from 'path';
 
 const OUTPUT_FOLDER = './docs';
 const SRC_FOLDER = './src';
@@ -36,9 +40,47 @@ function addLiveJS(options) {
                     const contents = file.contents.toString();
                     const root = parse(contents);
 
-                    root.querySelector('head').appendChild(scriptElement);
+                    // root.querySelector('head').appendChild(scriptElement);
                     file.contents = Buffer.from(root.toString());
                 })
+        }
+    }
+}
+
+function addRecipeMetadata() {
+    return (files, metalsmith) => {
+        metalsmith.match('recipes/**/*.md')
+            .forEach(filepath => {
+                const file = files[filepath];
+                const contents = file.contents.toString();
+                
+                // Extract title from first heading
+                const titleMatch = contents.match(/^##?\s+(.+)$/m);
+                const title = titleMatch ? titleMatch[1] : 'Recipe';
+                
+                file.title = title;
+                file.layout = 'recipe.html';
+            })
+    }
+}
+
+function addRecipeFiles() {
+    return (files, metalsmith) => {
+        const recipesDir = './recipes';
+        
+        if (fs.existsSync(recipesDir)) {
+            const recipeFiles = fs.readdirSync(recipesDir);
+            recipeFiles.forEach(filename => {
+                if (filename.endsWith('.md')) {
+                    const filepath = path.join(recipesDir, filename);
+                    const contents = fs.readFileSync(filepath);
+                    const key = `recipes/${filename}`;
+                    files[key] = {
+                        contents: contents,
+                        mode: '0644'
+                    };
+                }
+            });
         }
     }
 }
@@ -54,6 +96,16 @@ export const website = {
             .source(SRC_FOLDER)
             .destination(OUTPUT_FOLDER)
             .clean(true)
+            .use(addRecipeFiles())
+            .use(addRecipeMetadata())
+            .use(markdown())
+            .use(layouts({
+                directory: 'src/layouts',
+                default: 'recipe.html',
+                pattern: 'recipes/**/*.html',
+                transform: 'jstransformer-marked'
+
+            }))
             .use(writeBuildID({
                 path: 'js/build-id.js',
                 decorator: (id) => `const buildId = "${id}";`

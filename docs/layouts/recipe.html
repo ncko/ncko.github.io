@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ncko</title>
-    <meta name="description" content="Personal website of Nick Olsen - Software Developer">
+    <title>{{title}} - ncko</title>
+    <meta name="description" content="{{title}} - Recipe by Nick Olsen">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H54T7NP3NZ"></script>
@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
 
     <style>
         /* reset */
@@ -70,7 +70,7 @@
 
         /* shared */
         h1, h2, h3, h4, h5, h6,
-        p, ul, ol, img {
+        p, ul, ol, img, table {
             margin-bottom: 1.5rem;
             cursor: default;
         }
@@ -124,37 +124,22 @@
             padding: 0 1.5rem;
         }
 
-        .avatar {
-            border-radius: 50%;
+        /* tables */
+        table {
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        /*@media screen and (min-width: 1281px) {*/
-            .hover-highlight {
-                opacity: 1;
-                -webkit-transition: opacity 0.3s ease-out;
-                -moz-transition: opacity 0.3s ease-out;
-                -o-transition: opacity 0.3s ease-out;
-                transition: opacity 0.3s ease-out;
-            }
-
-            .hover-highlight--dim {
-                opacity: 0.5;
-            }
-        /*}*/
-
-        .header {
-            display: block;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
 
-        .header__body {
-            float: left;
-            width: 115px;
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
         }
-
-        .header_img {
-            display: block;
-        }
-
 
         /* overrides */
         .mb-0 {
@@ -165,73 +150,21 @@
             color: #9F9395;
         }
 
-        .clearfix:after {
-            display: table;
-            clear: both;
-        }
-
-        .d\:inline-block {
+        .back-link {
             display: inline-block;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
 
 <body>
 <div class="container">
-    <header class="header hover-highlight">
-        <div class="clearfix">
-            <img class="header__img avatar" src="img/head-brand-tiny.png" alt="Nick's avatar" width="72" height="72">
-            <div class="header__body">
-                <h1 class="mb-0">ncko</h1>
-                <p class="lead grayish">Nick Olsen</p>
-            </div>
-        </div>
-    </header>
-
+    <a href="/" class="back-link">← Back to ncko</a>
+    
     <main>
-        <div class="hover-highlight d:inline-block">
-            <p class="lead">I write software.</p>
-        </div>
-        <ul class="hover-highlight">
-                    
-            <li>See my work history on <a href="https://linkedin.com/in/ncko">LinkedIn</a></li>
-            <li>Look at some of my code on <a href="https://github.com/ncko" target="_blank">GitHub</a></li>
-        </ul>
+        {{{contents}}}
     </main>
 </div>
-
-<script src="js/build-id.js"></script>
-<script>
-    const DIM_CLS = 'hover-highlight--dim'
-    const STATUS_ACTIVE = 'active'
-    const STATUS_INACTIVE = 'inactive'
-
-    document.addEventListener('DOMContentLoaded', initializeHoverHighlight)
-
-    function initializeHoverHighlight() {
-        const elements = Array.from(document.querySelectorAll('.hover-highlight'))
-        elements.forEach(initHighlightElement)
-    }
-
-    function initHighlightElement(currentElement, _, elements) {
-        currentElement.dataset.hstatus = STATUS_INACTIVE
-        currentElement.addEventListener('mouseenter', () => {
-            currentElement.dataset.hstatus = STATUS_ACTIVE
-            transition(elements)
-        })
-        currentElement.addEventListener('mouseleave', () => {
-            currentElement.dataset.hstatus = STATUS_INACTIVE
-            transition(elements)
-        })
-    }
-
-    function transition(elements) {
-        const activeElement = elements.find(el => el.dataset.hstatus === STATUS_ACTIVE)
-        activeElement ?
-            elements.forEach(element => element !== activeElement && element.classList.add(DIM_CLS))
-            : elements.forEach(element => element.classList.remove(DIM_CLS))
-    }
-</script>
 
 </body>
 
