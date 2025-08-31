@@ -10,6 +10,7 @@
 - 1 clove garlic
 - 1 thumb of ginger
 - 1/2 tbsp of tamari
+- 1/8th a cup or 17 grams of unsalted almonds
 - Pepper
 - Whatever other seasonings you'd like (all optional)
 	- garlic or onion powder
@@ -30,22 +31,23 @@
 7. Throw in the bell pepper and onions. Use the moisture from the bell pepper and onions to deglaze the pan.
 8. Once the pan is deglazed and the moister has evaporated a bit, add some pepper and stir for a couple more minutes.
 9. Turn off the heat and add in the tamari and keep stirring. We want the residual heat to continue cooking off the moisture from the tamari.
-10. Now serve the veggie mixture with the chicken over chickpeas.
+10. Now serve the veggie mixture with the chicken over chickpeas. Crush the almonds and sprinkle them on top.
 
 ### Nutrients
 
 | Nutrient          | Total |
 | ----------------- | ----- |
-| Calories          | 370.77 |
-| Protein (g)       | 33.8 |
-| Carbs (g)         | 32.85 |
-| Fiber (g)         | 7.7 |
-| Sugar (g)         | 7.8 |
-| Fat (g)           | 12 |
-| Saturated Fat (g) | 2 |
+| Calories          | 473.9 |
+| Protein (g)       | 37.42 |
+| Carbs (g)         | 36.47 |
+| Fiber (g)         | 9.6 |
+| Sugar (g)         | 8.7 |
+| Fat (g)           | 21 |
+| Saturated Fat (g) | 2.7 |
 | Sodium (mg)       | 570 |
 
 ### Tips
-- A probe thermometer make this recipe a lot easier.
+- I really recommend a problem thermometer for the chicken breast. It really helps avoid drying it out.
 - I like this one for dinners with the family. While I serve mine over chickpeas, they eat theirs over rice.
 - Low sodium tamari would reduce the sodium content of this recipe. I used regular tamari because we couldn't find low sodium varieties.
+- Roasting the almonds in the oven for a couple minutes creates a nice crunch that compliments the dish well. Just spread them on a baking sheet and put them in the oven with the chicken.
