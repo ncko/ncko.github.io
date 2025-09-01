@@ -22,14 +22,14 @@
 	- Cilantro or Thai basil - right before serving
 
 ### Instructions
-1. Pre-heat your oven to 400F and heat a cast iron or stainless steal pan over medium high heat.
+1. Pre-heat your oven to 400F and heat a cast iron or stainless steel pan over medium high heat.
 2. Pat the chicken breast dry and rub it with half of the olive oil. Then season both sides of the chicken breast generously with your seasonings of choice.
-3. Put the rest of the olive in the pre-heated pan and swirl it around so the oil covers the pan. Then put your chicken breast in.
+3. Put the rest of the olive oil in the pre-heated pan and swirl it around so the oil covers the pan. Then put your chicken breast in.
 4. After a few minutes, when the chicken breast has seared nicely on the bottom, flip the chicken breast. And then place the pan in the pre-heated oven.
-5. When the thicket part of the biggest chicken breast reaches 155F, take the pan out and put it on the stove. Move the chicken to a cutting board to rest. The internal temp of the chicken breast should stay at or above 155F for at least a minute.
+5. When the thickest part of the biggest chicken breast reaches 155F, take the pan out and put it on the stove. Move the chicken to a cutting board to rest. The internal temp of the chicken breast should stay at or above 155F for at least a minute.
 6. While the chicken breast is resting on the cutting board, put the pan over medium-high heat throw your ginger and garlic in the oil that is left in the pan for a minute or two. Don't burn the garlic.
 7. Throw in the bell pepper and onions. Use the moisture from the bell pepper and onions to deglaze the pan.
-8. Once the pan is deglazed and the moister has evaporated a bit, add some pepper and stir for a couple more minutes.
+8. Once the pan is deglazed and the moisture has evaporated a bit, add some pepper and stir for a couple more minutes.
 9. Turn off the heat and add in the tamari and keep stirring. We want the residual heat to continue cooking off the moisture from the tamari.
 10. Now serve the veggie mixture with the chicken over chickpeas. Crush the almonds and sprinkle them on top.
 
@@ -47,7 +47,7 @@
 | Sodium (mg)       | 570 |
 
 ### Tips
-- I really recommend a problem thermometer for the chicken breast. It really helps avoid drying it out.
+- I really recommend a probe thermometer for the chicken breast. It makes it much easier to avoid drying it out.
 - I like this one for dinners with the family. While I serve mine over chickpeas, they eat theirs over rice.
 - Low sodium tamari would reduce the sodium content of this recipe. I used regular tamari because we couldn't find low sodium varieties.
 - Roasting the almonds in the oven for a couple minutes creates a nice crunch that compliments the dish well. Just spread them on a baking sheet and put them in the oven with the chicken.

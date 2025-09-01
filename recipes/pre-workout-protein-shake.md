@@ -9,7 +9,7 @@
 - 2 tbsp Flaxseed Meal
 
 ### Instructions
-- Add it a shaker and shake
+- Add it all to a shaker and shake
 
 ### Nutrients
 

@@ -25,4 +25,4 @@
 | Sodium (mg)       | 97.5 |
 
 ### Tips
-- Pair this with a good source of protein like 60 grams of poached chicken breasts or air fried chicken breasts for a complete meal
+- Pair this with a good source of protein like 60 grams of poached chicken breasts or air-fried chicken breasts for a complete meal
